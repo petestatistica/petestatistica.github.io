@@ -1,0 +1,27 @@
+---
+title: " "
+image: logo.jpg
+#title-block-banner: false
+about:
+  id: pf-heading
+  template: jolla
+  image-shape: rounded
+  image-width: 15em
+  links: 
+    - text: email
+      icon: envelope
+      href: mailto:petestatisticaufu@gmail.com
+    - text: github
+      icon: github
+      href: https://github.com/petestatistica
+    - text: instagram
+      icon: instagram
+      href: https://www.instagram.com/petestatisticaufu
+---
+
+::: {#pf-heading}
+
+
+Olá! Esta é a página do PET Estatística. Aqui você encontra informações sobre nosso grupo e sobre as atividades que desenvolvemos. Na seção [Integrantes](integrantes/index.qmd) você encontra informações sobre os petianos e o tutor do grupo. Em [Artigos](artigos.qmd), você encontrará textos sobre o universo da Estatística; os textos são produzidos por nós e toda semana tem artigo novo! Detalhes sobre o curso de Estatística da UFU estão disponíveis em [O Curso](curso.qmd). Por fim, a seção [Sobre o PET](sobre-pet.qmd) contém informações sobre o Programa de Educação Tutorial.
+
+:::
