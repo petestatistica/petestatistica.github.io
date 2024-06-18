@@ -1,0 +1,17 @@
+---
+title: "Artigos"
+listing:
+  contents: artigos
+  type: default
+  sort: "date desc"
+  date-format: DD/MM/YYYY
+  categories: true
+  fields: [image, author, description, title, date, categories]
+language: _custom.yml
+page-layout: full
+title-block-banner: true
+listing-page-category-all: "tudo"
+toc-title-website: "nesta página"
+lang: pt-br
+---
+

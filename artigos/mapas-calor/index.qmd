@@ -1,0 +1,183 @@
+---
+title: "Mapas de Calor"
+author: "Maria Cecília Macedo"
+date: 2024-06-07
+date-format: DD/MM/YYYY
+image: capa2.jpg
+categories: "gráficos"
+description: "Explicando o que são mapas de calor e como construí-los no R"
+---
+
+Hoje irei apresentar um recurso gráfico que acho muito interessante na visualização de dados, o **Mapa de Calor**. Também mostrarei como criá-los usando o software R.
+
+## O que é um mapa de calor?
+
+Os Mapas de calor são representações gráficas que utilizam uma escala de cores para representar diferentes valores. Exemplificando, se tenho um conjuto de dados sobre a alimentação nos países europeus da década de 70 e quero construir um mapa de calor com ele, onde a escala de cores se intensifica conforme a média do consumo de determinado alimento aumenta, obtenho o seguinte mapa:
+
+```{r}
+#| label: tratando_dados
+#| include: false
+
+library(ggplot2)
+
+dados1 <- read.table("protein.txt", header = TRUE, sep = "\t")
+
+paises_pt <- c("Albânia", "Áustria", "Bélgica", "Bulgária", "Checoslováquia", 
+               "Dinamarca", "Alemanha Oriental", "Finlândia", "França", "Grécia", 
+               "Hungria", "Irlanda", "Itália", "Países Baixos", "Noruega", "Pôlonia", 
+               "Portugal", "Romênia", "Espanha", "Suécia", "Suíça", "Reino Unido", 
+               "URSS", "Alemanha Ocidental", "Iugoslávia")
+alimentos_pt <- c("CarneVermelha", "CarneBranca", "Ovos", "Leite", "Peixes", "Cereais", 
+                  "Amido", "Nozes", "FrutasVegetais")
+
+dados1$Country <- paises_pt
+colnames(dados1)[2:10] <- alimentos_pt
+colnames(dados1)[1] <- "Pais"
+
+pais <- rep(paises_pt, each = 9)
+alimento <- rep(alimentos_pt, time = 9)
+dados1_sn <- dados1[,-1]
+
+consumo <- c()
+for (i in 1:length(dados1$Pais)){
+  for (j in 1:length(dados1_sn)) {
+    consumo <- c(consumo, dados1_sn[i,j])
+  }
+}
+
+dados1_reformulados <- as.data.frame(cbind(pais, alimento, consumo))
+dados1_reformulados$consumo <- as.numeric(dados1_reformulados$consumo)
+
+```
+
+```{r}
+#| label: mapa_de_calor
+#| echo: false
+#| fig.align: center
+
+ggplot(data = dados1_reformulados, mapping = aes(x = alimento, y = pais, fill = consumo))+
+  geom_tile()+
+  scale_fill_gradient(low = "aliceblue", high = "darkblue")+
+  guides(fill = guide_colourbar(barwidth = 0.75, barheight = 10))+
+  labs(title = "Consumo de alimentos dos países europeus em 1973",
+       x = "País",
+       y = "Alimento")+
+  theme_minimal()+
+  theme(axis.text.x = element_text(size =9, angle = 13),
+        plot.title = element_text(size = 11, face = "bold", hjust = 0.5))
+
+```
+
+Mapas de calor podem sem também usados em um sentido mais literal do seu nome, onde queremos observar a incidência de algo, em uma determinada região (temperatura média de um estado brasileiro, por exemplo).
+
+## Criando mapas de calor com auxilo do RStudio
+
+Existem várias maneiras de criar mapas de calor no R. Irei aprestentar duas delas: utilizando a função nativa `heatmap()` e, em seguida, a biblioteca `ggplot2`.
+
+Trabalharei com um conjunto de dados similar ao que usei para o mapa de calor do consumo de alimentos dos países europeus mostrado anteriormente, mas com dados simulados sobre a alimentação de 10 espécies diferentes de tubarões.
+
+### Utilizando a função heatmap()
+
+O R nos fornece uma função nativa para criarmos mapas de calor. Uma coisa bem interessante é que, por default, a função realiza a clusterização do conjunto de dados tanto das variáveis presentes no eixo das abscissas (eixo x) quanto do eixo das ordenadas (eixo y), ou seja, ela agrupa os dados "mais parecidos" entre si.
+
+A seguir, apresentarei como criar o mapa de calor usando a função `heatmap()` e alterando essa clusterização que ela realiza.
+
+Inicialmente, importarei o dataset criado com os dados fictícios.
+
+```{r}
+#| label: heatmap_pt1
+
+dados_tubaroes <- read.csv("tubaroes_heatmap.csv", header = TRUE)
+dados_tubaroes
+```
+
+Como a função `heatmap()` pede que o objeto que contenha os dados seja uma matriz, farei a seguir uma pequena manipulação do conjunto de dados, onde colocarei os nomes das espécies de tubarões como nome das linhas e excluirei a coluna `dados_tubaroes$especie`, que não será mais necessária.
+
+```{r}
+#| label: heatmap_pt2
+
+rownames(dados_tubaroes) <- dados_tubaroes$especie
+dados_tubaroes <- dados_tubaroes[,-1]
+dados_tubaroes
+```
+
+Agora que os dados já estão do jeito que quero, posso finalmente usar a função `heatmap()`, lembrando que eles terão que estar em forma de matriz.
+
+```{r}
+#| label: heatmap_pt3
+#| fig.align: center
+
+heatmap(as.matrix(dados_tubaroes))
+```
+
+Como tinha dito, a função fez a clusterização dos dados. Observe que ela também mostra o dendograma dessa clusterização. Para retirar a clusterização, usa-se o argumento `Rowv = NA` para a das linhas e `Colv = NA` para a das colunas, veja:
+
+```{r}
+#| label: heatmap_pt4
+#| fig.align: center
+
+#mapa de calor sem o dendograma das linhas
+heatmap(as.matrix(dados_tubaroes), Rowv = NA) 
+#mapa de calor sem o dendograma das colunas
+heatmap(as.matrix(dados_tubaroes), Colv = NA) 
+#mapa de calor sem os dendogramas
+heatmap(as.matrix(dados_tubaroes), Rowv = NA, Colv = NA) 
+```
+
+### Utilizando a biblioteca ggplot2
+
+A biblioteca `ggplot2` dá diversas funções interessantes para visualização de dados. Com ela é possivel criar os mais variados tipos de gráficos de maneira muito elegante (e eles ficam lindos!).
+
+Antes de qualquer coisa, irei fazer a importação da biblioteca.
+
+```{r}
+#| label: ggplot_pt1
+
+library(ggplot2)
+```
+
+Para criar o mapa de calor com ela, preferi fazer uma pequena alteração na estrutura do data frame, pois antes eles estavam dispostos de uma maneira que se assemelha a uma matriz e para conseguir usá-los com o ggplot preciso que eles estejam em um formato do tipo tabela. Apesar dessa alteração, o conteúdo dos dados permanece o mesmo. Veja como ficaram as primeiras 10 linhas:
+
+```{r}
+#| label: ggplot_pt2
+#| 
+dados_tubaroes <- read.csv("tubaroes_ggplot.csv", header = TRUE)
+dados_tubaroes[1:10,]
+```
+
+Agora posso criar o gráfico. No eixo x quero que fiquem as espécies de que os tubarões consomem, e no eixo y o nome das espécies de tubarões que aparecem no conjunto de dados que estou trabalhando. O gráfico será preenchido com a quantidade de consumo de cada peixe por espécie. E utilizarei a geometria `geom_tile` para dar forma ao mapa de calor.
+
+```{r}
+#| label: ggplot_pt3
+#| fig.align: center
+
+ggplot(data = dados_tubaroes, mapping = aes(x = peixe_consumido, 
+                                            y = especie, 
+                                            fill = consumo_diario))+
+  geom_tile()
+```
+
+O ggplot me permite fazer diversas alterações no gráfico, irei fazer algumas a seguir para mostrar um pouquinho das diversas possibilidades que ele dá. Fique à vontade para explorar o pacote e descobrir outras alterações possiveis.
+
+```{r}
+#| label: ggplot_pt4
+#| fig.align: center
+
+ggplot(data = dados_tubaroes, mapping = aes(x = peixe_consumido, 
+                                            y = especie, 
+                                            fill = consumo_diario))+
+  geom_tile()+
+  scale_fill_gradient(low = "lightskyblue1", high = "dodgerblue4")+
+  guides(fill = guide_colourbar(barwidth = 0.75, barheight = 10))+
+  labs(title = "Alimentação diária de tubarões",
+       subtitle = "(em gramas)",
+       x = "Peixes",
+       y = "Espécie de tubarão")+
+  theme_minimal()+
+  theme(plot.title = element_text(face = "bold", hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5))
+```
+
+Olha como ficou bonitinho!
+
+Espero que tenha gostado dos mapas de calor e ficado interessado em criar alguns. Agora é sua vez de colocar os conhecimentos em prática.

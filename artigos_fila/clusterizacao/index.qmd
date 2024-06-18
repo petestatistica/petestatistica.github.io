@@ -1,0 +1,140 @@
+---
+title: "Clusterização K-means e uma aplicação com mapas"
+author: "Elisa Kaori"
+date: 2024-05-28
+date-format: DD/MM/YYYY
+image: capa.jpg
+categories: [aprendizado de máquina]
+description: "Utilizando o algoritmo K-Means para estudar as taxas de prisões por crimes violentos em cada estado dos Estados Unidos em 1973."
+---
+
+### Uma breve introdução
+
+Dentro das muitas definições sobre o que é a Estatística, uma abordagem é tentar entendê-la como uma ciência capaz de utilizar métodos científicos para estudar e tirar conclusões sobre uma população a partir de suas informações.
+
+Ao estudar uma população ou um conjunto de dados, uma das primeiras perguntas que podemos fazer para nos ajudar a conhecer nossos dados é: será que os elementos desse conjunto possuem semelhanças entre si? Se sim, será que essas semelhanças são suficientes para dividi-los em grupos?
+
+Dentro do aprendizado de máquina (ou *machine learning*), uma ferramenta poderosa para nos auxiliar com essas respostas é a técnica de **clusterização**, do inglês *clustering,* que consiste em um modelo de aprendizado não supervisionado que utiliza técnicas computacionais para separar um conjunto de dados em grupos, baseando-se em suas características similares.
+
+### Mas afinal, o que é aprendizado de máquina?
+
+Podemos definir aprendizado de máquina como um campo de estudo dentro da inteligência artificial que desenvolve algoritmos, com o objetivo de capacitar a máquina a aprender com os dados e identificar padrões. De certa forma, é como se estivéssemos ensinando nosso computador a replicar o pensamento analítico humano.
+
+Podemos dividir o aprendizado de máquina em quatro subcategorias: aprendizagem supervisionada, semi-supervisionada, não supervisionada e por reforço. No caso da clusterização, a técnica se encaixa no modelo de aprendizagem não supervisionada. Esse modelo se caracteriza por utilizar conjuntos de dados não rotulados, ou seja, o modelo deve encontrar sozinho os padrões contidos nos dados, já que não há uma variável resposta.
+
+Existem diversos algoritmos de clusterização, uma vez que cada problema pode exigir uma abordagem diferente baseado em suas características. No nosso caso, utilizaremos o algoritmo chamado *K-means.* Esse modelo consiste no particionamento dos elementos em *k* grupos (*clusters*), em que cada observação pertence ao grupo com a média mais próxima.
+
+![](Imagem1.png){fig-align="center"}
+
+### Aplicação utilizando o conjunto USArrests
+
+Agora que já entendemos o que é aprendizado de máquina e o que é clusterização, aplicaremos esse conhecimento utilizando o conjunto de dados *USArrests*. Este conjunto de dados está disponível na biblioteca nativa do R e tem informações sobre as taxas de prisões por crimes violentos em cada estado dos Estados Unidos em 1973.
+
+Primeiro, importamos o conjunto de dados e o salvamos em um *dataframe* que chamaremos de *dados*.  Depois de importar, precisamos fazer a padronização dos dados, ou seja, colocar todas as variáveis na mesma ordem de grandeza. Para isso, usamos a função *scale*.
+
+```{r}
+data("USArrests")
+dados <- USArrests
+dados_padronizados <- scale(dados)
+```
+
+Com os dados devidamente padronizados, agora podemos aplicar o algoritmo *K-means* e dividir nosso conjunto em *clusters* (grupos). A função que usaremos para isso se chama *kmeans()* e possui os seguintes argumentos:
+
+-   **‘x’:** conjunto de dados a ser agrupado (*dataframe* ou matriz);
+
+-   **‘centers’:** número de *clusters* desejado (‘*k*’);
+
+-   **‘iter.max’:** número máximo de iterações ;
+
+-   **‘nstart’:** número de vezes que o algoritmo será executado com diferentes pontos de partida (aleatórios).
+
+Para esse conjunto de dados, tomaremos nosso ‘*k’* como 5, o número de iterações como 20 e ‘*nstart’ como 50.*
+
+```{r}
+#| output: false
+clusterizacao <- kmeans(x = dados_padronizados, centers = 5, iter.max = 20, nstart = 50)
+clusterizacao
+```
+
+Esse código nos retorna as principais informações sobre o nosso agrupamento, sendo elas: a quantidade de *clusters* e seus respectivos tamanhos, as médias das variáveis para cada *cluster*, o vetor indicador da classificação de cada observação, a soma de quadrados dos *clusters* e uma lista de todos os componentes disponíveis.
+
+O componente que mais nos interessa é o vetor indicando a qual *cluster* (de 1 a 5) cada observação do conjunto de dados pertence. Para isso, usamos o código a seguir:
+
+```{r}
+clusterizacao$cluster
+```
+
+Agora que conseguimos agrupar os estados, criaremos uma coluna em nosso *dataframe* chamada *cluster* contendo a classificação de cada observação. Também usaremos a função *as.factor()* para transformar o vetor em um fator, ou seja, em um dado categórico.
+
+```{r}
+dados$cluster <- as.factor(clusterizacao$cluster)
+```
+
+Uma vez que o nosso *dataframe* possui a coluna indicando os *clusters*, podemos separar o nosso conjunto de dados em subgrupos, para que possamos ver de forma mais eficiente quais são os estados pertencentes a cada grupo.
+
+```{r}
+cluster1 <- dados[dados$cluster == 1, ]
+cluster2 <- dados[dados$cluster == 2, ]
+cluster3 <- dados[dados$cluster == 3, ]
+cluster4 <- dados[dados$cluster == 4, ]
+cluster5 <- dados[dados$cluster == 5, ]
+
+rownames(cluster1)
+rownames(cluster2)
+rownames(cluster3)
+rownames(cluster4)
+rownames(cluster5)
+```
+
+Agora que sabemos a qual grupo pertence cada estado, podemos começar a pensar em alguns questionamentos interessantes. Além das taxas de prisões, o que será que esses estados agrupados no mesmo *cluster* possuem em comum? Será que são estados geograficamente próximos uns dos outros? Será que dividem semelhanças em aspectos socioeconômicos ou no contexto histórico?
+
+Com essas perguntas em mente, um recurso gráfico muito útil para nos ajudar a visualizar esse agrupamento e aprofundar nossa análise é o uso de mapas. Nesse caso, podemos utilizar um mapa dos Estados Unidos para colorir os estados de cada *cluster* encontrado usando cores diferentes.
+
+### Aplicação utilizando mapas
+
+Para montar nosso mapa, precisamos de algumas ferramentas e de informações sobre as coordenadas geográficas de cada estado. Então, utilizaremos as seguintes bibliotecas: 
+
+-   **‘ggplot2’**: própria para a visualização de dados e construção de gráficos;
+
+-   **‘dplyr’**: utilizada para auxiliar na manipulação de dados e *dataframes;*
+
+-   **‘maps’:** contém dados sobre a latitude e longitude de contornos de continentes, países, estados e condados do mundo.
+
+```{r}
+#| output: false
+library(maps)
+library(ggplot2)
+library(dplyr)
+```
+
+Primeiro, criaremos a variável *dados_geograficos* contendo as coordenadas dos estados e adicionaremos uma nova coluna ao *dataframe* chamada *state*, contendo os nomes dos estados em letra minúscula. Então, utilizaremos a função *left_join()* do pacote dplyr para que possamos juntar as informações geográficas ao nosso conjunto.
+
+```{r}
+dados_geograficos <- map_data("state")
+dados$state <- tolower(rownames(dados))
+dados <- left_join(dados, dados_geograficos, by = c("state" = "region"))
+```
+
+Agora, utilizando a função *geom_polygon()* no *ggplot*, conseguimos desenhar um polígono que dará forma ao nosso mapa. Para isso, usamos as coordenadas sobre latitude e longitude dos contornos dos estados obtidas anteriormente pela função *map_data()*.
+
+```{r}
+ggplot(data = dados, mapping = aes(x = long, y = lat, group = group, fill = cluster)) +
+  geom_polygon() +
+  labs(title = "Clusterização dos estados norte-americanos")
+```
+
+Conhecendo um pouco mais sobre o *ggplot* e explorando suas diversas funções, podemos modificar esse gráfico de acordo com nossas preferencias, mudando as cores ou até mesmo o tipo de projeção utilizada no mapa, como no exemplo a seguir.
+
+```{r}
+ggplot(data = dados, mapping = aes(x = long, y = lat, group = group, fill = cluster)) +
+  geom_polygon(color = "gray90", linewidth = 0.1) +
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  scale_fill_brewer(palette = "Set2")+
+  theme_minimal()+
+  theme(legend.position = "bottom")+
+  labs(x= NULL, y= NULL, title = "Clusterização dos estados norte-americanos")
+```
+
+Finalmente, com o auxílio do mapa, podemos começar a pensar em respostas para aquelas perguntas que fizemos sobre o conjunto de dados. Em uma análise mais superficial, vemos que a posição geográfica parece de fato ser um fator muito importante a ser considerado quando tentamos entender os motivos por trás dos *clusters* obtidos. Com essa nova suposição sobre nossos dados, passamos a enxergar nosso problema por um novo ângulo, o que nos permite aprofundar a compreensão dos dados e formular novas hipóteses.
+
+Considerar apenas o mapa pode não nos trazer conclusões concretas sobre o agrupamento ou sobre o conjunto de dados, mas nos dá uma importante ferramenta que auxilia no entendimento dos dados e enriquece muito a nossa análise.

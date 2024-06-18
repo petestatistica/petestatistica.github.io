@@ -1,0 +1,91 @@
+---
+title: "O Curso"
+toc: true
+title-block-banner: true
+toc-title: "Nesta página"
+toc-depth: 20
+link-external-newwindow: true
+editor: source
+---
+
+# Informações Gerais Sobre o Curso e a Profissão
+
+## Dados Gerais
+
+A tabela abaixo oferece um resumo do curso de Estatística da Universidade Federal de Uberlândia. Atualmente, o curso possui duas versões curriculares em vigor. Alunos que iniciaram antes do primeiro semestre de 2023 seguem a versão curricular de 2016, enquanto aqueles que ingressaram a partir desse semestre seguem a versão curricular de 2023.
+
+| Informação       | Detalhes                                           |
+|------------------|---------------------|
+| Habilitação      | Bacharelado                                        |
+| Regime acadêmico | Semestral                                          |
+| Turno de oferta  | Noturno                                            |
+| Duração          | Curriculo 2016: 5 anos <br> Curriculo 2023: 4 anos |
+| Prazo mínimo     | 4 anos                                             |
+| Prazo máximo     | Curriculo 2016: 8 anos <br> Curriculo 2023: 6 anos |
+| Número de vagas  | 30 por semestre                                    |
+
+: {.striped .hover}
+
+## O que é Estatística
+
+Estatística é uma ciência multidisciplinar. Seu objetivo é o estudo da variabilidade, da incerteza e da tomada de decisões frente à incerteza. A variabilidade e a incerteza estão presentes em todas as áreas do conhecimento, o que torna a estatística uma ciência de importância crucial para resolver uma série de problemas, através do uso de metodologias que permitem chegar a conclusões científicas a partir de dados coletados do mundo real. O aprendizado a partir de dados, usando técnicas e metodologias científicas apropriadas e direcionadas às mais diversas aplicações, caracteriza a estatística como uma ciência multidisciplinar, embora seu corpo metodológico esteja inserido dentro das ciências exatas. Os métodos estatísticos têm forte embasamento matemático, mas o princípio que rege suas aplicações é o de quantificar a incerteza para fornecer conclusões científicas baseando-se em dados. Ferramentas estatísticas tais como coeficientes de confiança, níveis de significância e regiões de credibilidade foram desenvolvidas com a finalidade de fornecer resultados válidos e, relativamente, de fácil interpretação. O desenvolvimento da estatística como ciência tem seguido a tendência natural do mundo moderno. A alta competitividade na busca de tecnologias e de mercados passa obrigatoriamente pela necessidade da obtenção de informações e do rápido aprendizado das mesmas. A expansão no processo de obtenção, armazenamento e disseminação de informações estatísticas tem sido acompanhada pelo desenvolvimento de novas técnicas e metodologias.
+
+## O que faz o Estatístico
+
+O estatístico é um profissional versátil que pode trabalhar em diversas áreas do conhecimento, interagindo com várias equipes multidisciplinares. A sólida formação em teoria e técnicas estatísticas, ciência de dados, probabilidade, computação e métodos quantitativos permite ao estatístico a construção de modelos, o controle e o estudo adequado de fenômenos que envolvam incerteza, além do desenvolvimento e aperfeiçoamento de novas técnicas estatísticas de obtenção e análise de informações.
+
+## Mercado de Trabalho
+
+De acordo com o Conselho Regional de Estatística da 3ª Região, há muitas vagas para estatísticos, ou para profissionais que dominam as técnicas estatísticas, no atual mercado de trabalho. Com a crescente áera de Ciência de Dados, a procura por nossos profissionais tem crescido ainda mais. Mas sofremos de um grave problema que é a falta de profissionais no mercado: a baixa procura pelos nossos cursos e a alta evasão escolar resultam em poucos bacharéis em estatística formados anualmente no Brasil.
+
+# Informações Específicas Sobre o Curso
+
+## Histórico
+
+O curso de Estatística teve sua criação aprovada em 28 de abril de 2009 e a primeira turma ingressou no ano de 2010. O reconhecimento perante o MEC aconteceu 3 anos mais tarde, em 09 de julho de 2013. Durante este período, o curso formou diversos profissionais que hoje atuam em grandes empresas da nossa região e do país, além de vários ex-alunos que cursam ou que cursaram pós-graduação em centros educacionais de grande tradição na área. Desde a sua criação o curso recebe nota 4 nas avaliações periódicas da CAPES, sendo nota máxima igual a 5, se consolidando como um importante centro de formação. Ao longo dos anos, vários alunos foram beneficiados com diversas oportunidades concedidas pela Universidade e por órgão de apoio, como bolsas assistenciais, de iniciação científica, de monitoria, de intercâmbio e estágio remunerado.
+
+## Objetivos do Curso
+
+O Curso de graduação, Bacharelado em Estatística, tem por objetivo qualificar os seus graduados para ocupar posições de destaque no mercado de trabalho, interagindo com equipes multidisciplinares, junto a engenheiros, físicos, economistas, biólogos e outros profissionais, visando o desenvolvimento de pesquisa científica, quer dentro ou fora do ambiente acadêmico. Nesse contexto, o Curso de Bacharelado em Estatística tem o objetivo de formar profissionais com as seguintes características:
+
+-   sólida formação de conteúdos de Matemática, Métodos Quantitativos e Estatística;
+
+-   conhecimento de informática, especialmente em linguagens de programação, noções de banco de dados e pacotes estatísticos;
+
+-   formação que lhes prepare para enfrentar os desafios das rápidas transformações da sociedade, do mercado de trabalho e das condições do exercício profissional;
+
+-   domínio de conhecimentos estatísticos, tendo consciência do modo de produção próprio dessa ciência – fundamentos, origens, procedimentos etc. – tendo, também, conhecimento das suas aplicações em várias áreas;
+
+-   conhecimento de conteúdos, habilidades e competências próprias da estatística, reconhecendo sua importância para o exercício pleno da profissão;
+
+-   resolução de problemas que envolvam a coleta, a sistematização e a análise de dados, frequentemente em colaboração com profissionais de outras áreas, que propicie uma grande variedade de ênfases possíveis, tais como: Probabilidade, Inferência, Bioestatística, Estatística Experimental, Qualidade e Confiabilidade, Ciência de Dados e Estatística computacional;
+
+-   capacidade para continuidade dos estudos em cursos de pós-graduação, para atuação em universidades, centros de pesquisa e instituições similares, que enseje uma formação mais acadêmica e formal;
+
+-   capazes de assumir postura ética diante dos fatos.
+
+## Estrutura Curricular
+
+### Versão Curricular 2016
+
+Na versão de 2016 do Projeto Pedagógico do Curso (PPC), a grade curricular do curso de Graduação em Estatística é composta por 40 disciplinas, relacionados entre si através dos pré-requisitos e divididos em 10 períodos no horário noturno, sendo 4 disciplinas por semestre. Dessas disciplinas, 36 são de caráter obrigatório e 4 de caráter optativo, sendo esses escolhidos de um grupo de disciplinas oferecidos pelo Instituto de Matemática e Estatística (IME) e outras unidades acadêmicas da universidade. Além destes, o curso também possui a componente Horas Complementares. Nos links a seguir, você encontra informações detalhadas sobre o PPC, as fichas das disciplinas e a grade curricular da versão curricular de 2016.
+
+|            |            |
+|-------------|-------------|
+| Projeto Pedagógico do Curso | [Arquivo PDF](http://www.ime.ufu.br/system/files/conteudo/projeto_pedagogico_-_estatistica_0.pdf) |
+| Fichas das disciplinas      | [Link](http://www.ime.ufu.br/graduacao/estatistica/fichas-de-disciplinas)                         |
+| Grade Curricular            | [Arquivo PDF](http://www.ime.ufu.br/system/files/conteudo/grade_corrigida_curriculo_2019.pdf)     |
+
+: {.striped .hover}
+
+### Versão Curricular 2023
+
+Na versão de 2023 do Projeto Pedagógico do Curso (PPC), a grade curricular passou a ser composta por 41 disciplinas divididos em 8 períodos. Dessas disciplinas, 38 são de caráter obrigatório e 3 de caráter optativo, sendo essas optativas escolhidos de um grupo de 29 disciplinas oferecidos pelo Instituto de Matemática e Estatística (IME) e outras unidades acadêmicas da universidade. Também existe a componente Horas Complementares e Atividades de Extensão. Não haverá migração de um currículo para outro, no entanto existem várias disciplinas que são equivalentes entre os dois currículos. Se você entrou no nosso curso a partir do segundo semestre de 2023 (que corresponde ao semestre letivo 2023.1) você está sob as regras do PPC 2023.1, caso contrário você está sob as regras do PPC 2016.1. Nos links a seguir, você encontra informações detalhadas sobre o PPC, a estrutura curricular e a grade curricular da versão curricular de 2023.
+
+|            |            |
+|-------------|-------------|
+| Projeto Pedagógico do Curso | [Arquivo PDF](http://www.ime.ufu.br/system/files/conteudo/ppc_curso_de_graduacao_em_estatistica_-_v.2022_0.pdf) |
+| Fichas das disciplinas      | [Link](http://www.ime.ufu.br/graduacao/estatistica/fichas-de-disciplinas)                                       |
+| Grade Curricular            | [Arquivo PDF](http://www.ime.ufu.br/system/files/conteudo/grade_curricular_v2023.1.pdf)                         |
+
+: {.striped .hover}

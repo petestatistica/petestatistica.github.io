@@ -1,0 +1,63 @@
+---
+title: "Uma medida regularmente esquecida"
+author: "Pedro Garcia"
+date: 2024-05-31
+date-format: DD/MM/YYYY
+image: logo.jpg
+categories: [medidas de dispersão, estatística, futebol, análise de desempenho]
+description: "A partir de exemplos práticos, este artigo mostra como o coeficiente de variação pode ser utilizado na análise de dados."
+---
+
+# Introdução
+
+Você é técnico de um time de futebol e tem que escalar uma nova jogadora no seu time titular para o início da pré-temporada. Seu coordenador te dá duas opções de meio-campistas recém promovidas da base, Alicia e Alexia. Ele também te fornece um histórico dos últimos jogos informando a participações em gols:
+
+Alicia : 1,1,1,2,1,1,3 <br />
+Alexia : 3,0,2,4,0,0
+
+E assim você entra no seguinte dilema: qual atleta escolher, dado que ambas são bem semelhantes no modo de jogo? Qual critério adotar?
+
+# Medidas 
+
+Um primeiro indicador que vem em mente seria a soma de participações em gols. Porém, como uma das atletas tem um jogo a mais, ela leva vantagem. Uma boa alternativa para isso seria aplicar a média.
+
+Sendo assim, a média de participações em gols da Alicia e Alexia, são de 1.43 e 1.5 gols, respectivamente. Podemos perceber que a Alexia obteve um indicador maior, mas que difere pouco da Alicia. Inicialmente poderíamos optar por escalar a Alexia.
+
+No entanto, quando olhamos a progressão de participação de gols, jogo a jogo, percebemos uma certa diferença na distribuição das duas, onde Alicia aparenta oscilar pouco ao decorrer das partidas, entregando no mínimo uma participação em gol por jogo. Já a Alexia se apresenta "8 ou 80" nessa amostra de jogos, atingindo uma partida com 4 contribuições diretas para gol. Por outro lado, em 3 partidas ela passou em branco.
+
+# Cálculo e Interpretação 
+
+O cálculo do desvio padrão ajuda bastante para analisar a dispersão do desempenho de ambas. Porém, uma medida que nos fornece outra ótica sobre as participações em gols é o coeficiente de variação (CV), também conhecido como dispersão relativa. Essa métrica poderosa nada mais é que o desvio padrão amostral dividido pela média amostral, e quando desejamos ter uma ideia em percentual podemos multiplicar esse indicador por 100.
+
+O Coeficiente de Variação (CV) pode ser interpretado de diversas maneiras. Primeiramente, quanto menor o CV, mais representativa é a média para a amostra. Em contrapartida, o CV também pode ser visto como um indicador de regularidade: valores altos indicam maior irregularidade nos dados da amostra, enquanto valores baixos sugerem maior regularidade.
+
+# Benefícios 
+
+Além de ser uma medida que possui alta interpretabilidade, há um benefício de flexibilidade, que pode ser visto em dois sentidos:
+
+Comparando a rentabilidade nos últimos 5 meses das ações de dois investidores:
+
+PrimoRico : 7800,4500,15000,5500,9800 <br />
+PrimoPobre : 100,70,450,190,230
+
+
+A pergunta que pode surgir é: qual a carteira possui mais regularidade ao longo dos meses observados? A propriedade que observamos é que podemos comparar duas amostras com grande diferença de magnitude, uma vez que um dos investidores pode fazer maiores aportes. Como as dispersões relativas do Primo Rico e do Primo Pobre são de aproximadamente 49% e 72%, respectivamente, podemos afirmar que a carteira de investimento do Primo Rico é mais "confiável" ao longo do período analisado.
+
+Entretanto, há um outro benefício muito legal do CV, a possibilidade de comparar maçã com banana. Imagine que um dos seus jogadores principais se lesiona no aquecimento antes de uma partida importante. Seu auxiliar técnico te informa duas possibilidades de formações alternativas, uma com um zagueiro a mais e outra com mais um atacante. Na prática ambas as possibilidades não mudam muito a mentalidade de como o time vai jogar. Porém, a regularidade dos atletas seria muito relevante para manter o equilíbrio coletivo e a confiança da comissão, de maneira que quem for escolhido vai desempenhar aquilo que tem feito em média nos últimos jogos que fez parte do time.
+
+Dito isso, o seu analista fornece estatísticas dos últimos 4 jogos de três fundamentos principais das suas duas opções. Para o zagueiro, temos os desarmes (D), percentual de disputas de bola ganhas (PDG) e interceptações (I). Já para o atacante, temos participações em gols (PG), passes decisivos (PD) e taxa de dribles bem-sucedidos (TDS).
+
+D : 3,1,0,0 <br />
+PDG : 85,95,76,66 <br />
+I : 2,4,2,1 <br />
+PG : 0,3,0,1 <br />
+PD : 1,2,0,0 <br />
+TDS : 33,50,100,22
+
+Antes de falarmos do resultado, enfatizamos que estamos comparando a regularidade de atletas de posições totalmente diferentes, evidenciando o poder do uso dessa métrica para esse tipo de interpretação. Uma ideia para comparar os dois jogadores será calcular o CV para cada uma das métricas, e por fim, realizar uma média do CV dos indicadores condizentes com cada um dos jogadores. Temos que a média do CV do zagueiro foi de 71%, e do atacante de 112%, logo o jogador mais regular dentre as métricas definidas foi o defensor, e assim o técnico pode tomar sua decisão.
+
+# Conclusão 
+
+Há outros modos de explorar o Coeficiente de Variação, e isso vai de encontro com a criatividade do entusiasta dos dados; dito isso, que o CV não seja tão esquecido e que seja utilizado com mais regularidade!
+
+

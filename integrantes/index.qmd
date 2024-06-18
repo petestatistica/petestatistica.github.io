@@ -1,0 +1,114 @@
+---
+title: "Integrantes"
+toc: true
+title-block-banner: true
+toc-title: "Nesta página"
+toc-depth: 10
+format:
+  html:
+    anchor-sections: false
+---
+
+Conheça um pouco mais sobre os integrantes da nossa equipe.
+
+### Petianos
+
+------------------------------------------------------------------------
+
+::: grid
+::: g-col-4
+![](fotos-descricoes/bruno/foto_bruno.jpeg)
+
+<h4>**Bruno**</h4>
+
+Entrei no curso em 2019 e estou no PET há quase 4 anos, cursando atualmente o último período da graduação. Um pseudo-cinéfilo com um gosto eclético (às vezes duvidoso) para músicas e camisas estampadas. Minha paixão é viajar e conhecer lugares e culturas diferentes.
+:::
+
+::: g-col-4
+![](fotos-descricoes/elisa/foto_elisa.png)
+
+<h4>**Elisa**</h4>
+
+Entrei na Estatística em 2020 e no PET em 2021. No meu tempo livre, gosto de ler, costurar e passar tempo com pessoas queridas. Sou de Campinas-SP e sinto muita saudade dos meus irmãos (tenho 4) e de purê no cachorro-quente.
+:::
+
+::: g-col-4
+![](fotos-descricoes/gabriel-assis/gabriel-assis.jpeg)
+
+<h4>**Gabriel Assis**</h4>
+
+Tenho 21 anos e estou mais ou menos no sexto período da faculdade. No meu tempo livre, gosto muito de jogar basquete (mesmo não sendo bom), assistir filmes e séries, além de adorar assistir qualquer tipo de esporte, geralmente futebol e sofrendo com o Flamengo.
+:::
+
+::: g-col-4
+![](fotos-descricoes/gabriel-moreira/foto-gabriel.jpg)
+
+<h4>**Gabriel Moreira**</h4>
+
+Gosto de castanha de caju, gatos e suco prats de laranja, não necessariamente nessa ordem. No meu tempo livre gosto de jogar, ler, fazer alguma atividade física, aprender coisas novas e refletir sobre o império romano.
+:::
+
+::: g-col-4
+![](fotos-descricoes/joel/joel_foto.jpg)
+
+<h4>**Joel**</h4>
+
+Sou de Vitória-ES. Descobri por acaso o curso de Estatística, em Uberlândia. Não tenho tatuagem, não tenho gato, não tenho cachorro e não tenho dinheiro. Tenho dificuldade em dizer do que gosto, além da matemática, literatura, xadrez e Iron Maiden.
+:::
+
+::: g-col-4
+![](fotos-descricoes/kalyara/kalyara-foto.jpg)
+
+<h4>**Kalyara**</h4>
+
+Me chamo Kalyara, sou apaixonada por flores, vermelho, pelos meus cachorros e por biscoito frito.
+:::
+
+::: g-col-4
+![](fotos-descricoes/maria-cecilia/mariacecilia_foto.jpg)
+
+<h4>**Maria Cecília**</h4>
+
+Entrei no PET no final de 2022. Não vivo sem meus fones de ouvido, amo animais marinhos, odeio ficar entediada e por isso possuo vários hobbies, alguns deles são jogar videogame, ler, tocar instrumentos e dançar sapateado.
+:::
+
+::: g-col-4
+![](fotos-descricoes/pedro-garcia/pedro.jpg)
+
+<h4>**Pedro Garcia**</h4>
+
+A vida me fez estatístico e faço da minha vida estatística, unindo-a aos meus hobbies. Desde uma análise dos detalhes de uma partida de futebol ou modalidade de eSports, até a criação de um recomendador tão bom que seja capaz de indicar Westworld, TWD e Interestelar.
+:::
+
+::: g-col-4
+![](fotos-descricoes/raiane/foto-raiane.jpeg)
+
+<h4>**Raiane**</h4>
+
+Entrei no PET em novembro de 2021. Me tornei alguém que nunca imaginei ser: uma pessoa caseira e que ama comprar coisas para casa. Uberlândia me transformou em uma grande torcedora do Dentil Praia Clube (esperando ansiosamente pelo início da próxima temporada). Sempre que possível gosto de fazer a Noite do Cinema em Casa com meu filho com muita pipoca e brigadeiro.
+:::
+
+::: g-col-4
+![](fotos-descricoes/victor-borin/borin.jpeg)
+
+<h4>**Victor**</h4>
+
+Meu nome é Victor Borin, sou de Ribeirão Preto. Torço para o São Paulo e para o Comercial, amo jogar, aprender, ver qualquer tipo de esporte, além de amar quase todo tipo de música.
+:::
+:::
+
+### Tutor
+
+------------------------------------------------------------------------
+
+::: grid
+::: {.g-col-12 .g-col-md-4}
+![](fotos-descricoes/pedro-franklin/pedro-franklin.jpg)
+:::
+
+::: {.g-col-12 .g-col-md-8}
+##### **Pedro Franklin**
+
+Quando eu tinha 6 anos eu queria ser bailarino; 4 anos depois, pensei que seria goleiro do Cruzeiro; desisti do futebol aos 12 anos e estava convicto que seria zoólogo; fiquei perdido aos 24 anos e já não sabia o que queria ser. Atualmente vivo com dois gatinhos (Frida e Amendoim) e sou um aprendiz ceramista e jogador mediano de Zelda.
+:::
+:::

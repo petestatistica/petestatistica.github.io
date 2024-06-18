@@ -1,0 +1,80 @@
+---
+title: "Estatística no Basquete: Transformando a Escolha do MVP"
+author: "Gabriel Assis Godrim"
+date: 2024-05-28
+date-format: DD/MM/YYYY
+image: capa.jpg
+categories: [esporte]
+description: "O uso da estatística no basquete: Nikola Jokic mereceu o prêmio MVP?"
+language: _custom.yml
+---
+
+## Introdução
+
+Atualmente, é perceptível cada vez mais que o uso da estatística no esporte resulta em melhorias tanto nas performances individuais quanto na coletiva. Um exemplo disso é o aumento da procura dos times e atletas por analistas pois por meio da análise de dados, eles podem identificar padrões de desempenho de suas equipes e dos adversários, ajustar suas táticas de acordo com as tendências observadas e maximizar suas chances de vitória. Agora destacarei a importância deste uso, o seu impacto e algo que nem sempre é percebido: a sua influência nas premiações individuais.
+
+Meu interesse por esse tema foi despertado recentemente ao ver um comentário de Shaquille O'Neal, um jogador aposentado e atualmente comentarista, criticando a escolha de Nikola Jokic, jogador em análise hoje, como ganhador do prêmio de MVP. Esse post me fez refletir sobre como o prêmio de MVP se transformou e como tem se tornado cada vez mais dependente de estatísticas abrangentes na escolha do vencedor.
+
+## MVP: O que é e Como Funciona
+
+O MVP, ou Most Valuable Player, é concedido anualmente ao jogador considerado o mais impactante para sua equipe durante a temporada regular da NBA. A escolha do MVP é feita por um painel de jornalistas e especialistas em basquete, que votam no jogador que consideram mais qualificado para o prêmio com base em uma série de critérios, incluindo estatísticas individuais, contribuições para o sucesso da equipe, liderança e impacto geral no jogo. Anteriormente, a escolha do MVP era baseada principalmente em estatísticas básicas, mas agora inclui diversas métricas avançadas.
+
+## Exemplo de Algumas Dessas Métricas:
+
+Player Efficiency Rating (PER): Busca quantificar o impacto geral de um jogador em todas as áreas do jogo, considerando uma variedade de estatísticas individuais e ponderando-as de acordo com sua importância relativa.
+
+Win Shares (WS): Calcula a contribuição de um jogador para as vitórias de sua equipe ao longo da temporada, considerando sua contribuição ofensiva, defensiva e simplesmente por estar em quadra.
+
+## Análise Gráfica dos Finalistas do Prêmio MVP
+
+Para ilustrar a mudança no prêmio MVP devido ao aumento do peso das estatísticas, apresento uma análise gráfica com as principais estatísticas dos finalistas deste ano: Nikola Jokic, Shai Gilgeous-Alexander e Luka Doncic. Os dados que utilizei para construir e analisar esse gráfico foram obtidos do site [basketball-reference](https://www.basketball-reference.com) e correspondem à temporada regular 2023-24 dos três jogadores. A análise visa contrapor a declaração de Shaq :*“Quero parabenizá-lo, mas quero que você ouça isso de mim primeiro. Achei que o SGA deveria ter sido o MVP, isso não é desrespeito a você, mas parabéns.”*, parece ser baseada em uma visão tradicional da premiação, que favorece os jogadores mais dominantes.
+
+```{r grafico, echo=FALSE, warning = FALSE , fig.align='center', fig.height=4 }
+
+library(ggplot2)
+library(reshape2)
+nomes <- c("Jokic","Shai","Luka")
+Jogos<- c(79,75,70)
+Pts_jogo<- c(26.4,30.1,33.9)
+Rb_jogo <- c(12.4,5.5,9.2)
+Ast_jogo <- c(9,6.2,9.8)
+EFG <- c(61.2,56.7,57.3)
+PER<-c(31,29.3,28.1)
+WS<- c(17,14.6,12)
+
+dados <- data.frame(
+  PER = PER,
+  Pts_jogo = Pts_jogo,
+  WS = WS,
+  Nome = nomes,
+  Reb_jogo = Rb_jogo,
+  Ast_jogo = Ast_jogo
+ 
+ 
+)
+dados_melt <- melt(dados, id.vars = "Nome")
+
+
+# Criar o gráfico de barras usando ggplot2
+grafico <- ggplot(data = dados_melt, aes(x = variable, y = value, fill = Nome)) +
+  geom_bar(stat = "identity", position = "dodge", orientation = "horizontal") +
+  labs(title = "Comparação de Estatísticas por Jogador", x = "", y = "") +
+  theme_minimal() +
+  theme(legend.position = "bottom",  
+        legend.title = element_blank(),
+        panel.grid.major = element_blank(),  # Remove linhas de grade maiores
+        panel.grid.minor = element_blank(),  # Remove linhas de grade menores
+        panel.background = element_blank(),  # Remove o plano de fundo do painel
+        axis.line = element_line(colour = "black", linewidth = 0.5)) +  # Adiciona linhas de eixo
+  scale_fill_manual(values = c("Jokic" = "blue", "Shai" = "#CCCCCC", "Luka" = "#999999"))  # Definir cores personalizadas para cada jogador
+
+# Exibir o gráfico
+print(grafico)
+
+```
+
+É possível observando o gráfico ver que, na parte estatística, a escolha de Jokic como MVP não é um erro, pois podemos notar que, em todas as métricas, a diferença entre ele e os outros concorrentes não é significativa, liderando inclusive o PER e o WS, métricas que melhor refletem o impacto de um jogador em sua equipe.
+
+## Conclusão
+
+Quis destacar como a estatística tem influenciado positivamente o basquete, não apenas melhorando o desempenho individual e coletivo, mas também reconhecendo jogadores com habilidades anteriormente subestimadas, o que contribui para o desempenho da equipe. Além disso, em minha opinião, o uso da estatística aumenta a transparência e objetividade na seleção do MVP. Ao considerar uma gama mais ampla de métricas, os eleitores do MVP podem tomar decisões mais informadas e justas, reconhecendo verdadeiramente o jogador mais valioso para sua equipe e para a liga como um todo.

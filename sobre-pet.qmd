@@ -1,0 +1,56 @@
+---
+title: "Sobre o PET"
+toc: true
+title-block-banner: true
+toc-title: "Nesta página"
+toc-depth: 10
+link-external-newwindow: true
+editor: source
+---
+
+## Introdução 
+
+O Programa de Educação Tutorial (PET) foi criado para apoiar atividades acadêmicas que integram ensino, pesquisa e extensão. A UFU é a instituição de ensino federal que contém o maior número de grupos PETs no Brasil. Existem dois tipos de Grupo PET na UFU, o PET MEC
+e o PET INSTITUCIONAL, este último criado, regido e controlado exclusivamente pela Universidade. O PET Estatística é um grupo institucional e foi criado em 2016.
+
+O PET é constituído por grupos de alunos organizados a partir das formações em nível de
+Graduação da UFU, cujas atividades são orientadas pelo princípio da indissociabilidade entre
+ensino, pesquisa e extensão. Sendo assim, o Programa é composto por Grupos tutoriais de
+aprendizagem e busca propiciar aos alunos, sob a orientação de um professor tutor, condições
+para a realização de atividades extracurriculares, que complementem a sua formação
+acadêmica, visando atender mais plenamente às necessidades do próprio Curso de Graduação,
+ampliando e aprofundando o percurso de sua formação profissional. Espera-se assim, contribuir
+para a melhoria da qualidade acadêmica dos Cursos de Graduação na UFU (Manual PET UFU, página 3, versão 2021).
+
+## Objetivos do Programa
+
+O PET tem como objetivo promover a formação
+ampla e de qualidade dos alunos de graduação envolvidos direta ou indiretamente com o
+Programa, estimulando valores que reforcem a cidadania e a consciência social dos
+participantes e a melhoria dos Cursos de Graduação. São objetivos específicos do Programa:
+
+-  Desenvolver atividades acadêmicas de ensino, pesquisa e extensão, em padrões de
+qualidade e de excelência, mediante Grupos de aprendizagem tutorial de natureza
+coletiva e interdisciplinar;
+
+-  Contribuir para a elevação da qualidade da formação dos alunos de graduação, a diminuição da evasão e a promoção do sucesso acadêmico, valorizando a articulação das atividades de ensino, pesquisa e extensão;
+
+-  Estimular a formação de profissionais e docentes de elevada qualificação técnica, científica, tecnológica e acadêmica;
+
+-  Formular novas estratégias de desenvolvimento e modernização do ensino superior no país;
+
+-  Estimular o espírito crítico, bem como a atuação profissional pautada pela cidadania e pela função social da educação superior;
+
+-  Introduzir novas práticas pedagógicas na graduação;
+
+-  Contribuir para a consolidação e difusão da educação tutorial como prática de formação na graduação;
+
+-  Estimular a vinculação dos Grupos a áreas prioritárias e a políticas públicas e de desenvolvimento, assim como a correção de desigualdades sociais;
+
+-  Contribuir com a política de diversidade, por meio de ações afirmativas em defesa da equidade socioeconômica, étnico-racial e de gênero;
+
+-  Contribuir com a política de saúde mental, buscando o bem-estar e a qualidade de vida da comunidade estudantil.
+
+## PET Estatística
+
+O PET Estatística é composto por um tutor e 12 alunos bolsistas, além de poder contar com a participação de até 4 alunos não bolsistas. Os alunos bolsistas recebem uma bolsa mensal no valor de R$ 700,00. O grupo se reúne duas vezes por semana para discutir o planejamento de seu trabalho e para desenvolver suas atividades internas, como o Clube do Livro sobre visualização de dados e o Grupo de Estudos em Processamento de Linguagem Natural. Além destas atividades, o PET Estatística desenvolve projetos de divulgação da Estatística e oferece regularmente cursos que contribuem para a formação dos alunos de toda a comunidade UFU.
