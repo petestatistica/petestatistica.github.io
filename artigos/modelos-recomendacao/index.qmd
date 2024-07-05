@@ -1,0 +1,31 @@
+---
+title: "As melhores recomendações"
+author: "Victor Borin"
+date: 2024-07-05
+date-format: DD/MM/YYYY
+image: capa.jpg
+categories: [modelos de recomendação]
+description: "Descobrir sobre os tipos de modelos de recomendação e aplicações na nossa rotina."
+---
+
+# As Melhores Recomendações
+
+## Introdução
+
+No mundo atual, nossa vida esta cada vez mais conectada com aplicativos e rede sociais, seja para otimizar nossa produtividade ou atender nossas necessidades sociais. Com isso, surge o aprimoramento do Mecanismos de Recomendação em que aumenta potencialmente a chance de a gente gostar de um conteúdo aleatório, com base nos conteúdos ou pessoas que vemos/seguimos, e assim, ficarmos mais tempo ou preferir uma plataforma específica.
+
+Eu, particularmente, prefiro o YouTube Music quando comparado ao Spotify justamente pelas recomendações de um atender melhor meus desejos em detrimento do outro. Fato a se levar em conta é que utilizo o YouTube a um tempo consideravelmente maior o que pode influenciar em muito as recomendações, já que sua “base de dados sobre mim” é consideravelmente maior.
+
+## Filtragem por Usuário ou Colaborativa
+
+Existem 3 tipos de Mecanismo de Recomendação: Filtragem Colaborativa, Filtragem baseada em conteúdo, e Sistema Hibrido. A Filtragem colaborativa, de uma maneira simples, é relacionada a outros usuários, os quais possuem gostos semelhantes ao meu. Por exemplo se eu gosto de jogos FPS como CSGO, Valorant e Battlefield um outro usuário joga somente Valorant e Battlefield, CSGO, então, seria uma excelente recomendação a este usuário já que os gostos são parecidos.
+
+## Filtragem de Conteúdo e Híbrida
+
+Já a Filtragem baseada em conteúdo, se baseia no conteúdo (literalmente), utilizando o mesmo exemplo anterior, Valorant seria uma boa recomendação para quem gosta de CSGO, já que, ambos são jogos de FPS e com dinâmicas parecidas. O Sistema Híbrido seria uma mistura dos dois, gerando assim uma diversidade de produtos e um sistema mais robusto e com melhor precisão.
+
+## De Algoritmo a Produto
+
+Um caso que merece bastante destaque é o TikTok, já que seus infinitos vídeos curtos nos prendem em sua plataforma, e com a recomendação correta faz a gente perder mais tempo do que gostaria. Ele utiliza interações, hashtags, localização entre outros para recomendar vídeos de uma forma muito rápida. Deu tão certo que hoje esse Algoritmo de Recomendação é vendido como um produto para outras empresas.
+
+Sendo assim, pode-se perceber que hoje em todo momento de conexão com a internet temos um algoritmo nos observando, sendo necessário tanto para melhorar nossa produtividade, quanto para ajudar a encontrar a música que a gente tanto gosta de uma maneira mais fácil. Para as empresas, cria-se a necessidade de desenvolvimento nesse setor, já que o investimento retorna como lucro nas vendas.
