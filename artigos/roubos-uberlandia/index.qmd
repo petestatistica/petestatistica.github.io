@@ -1,0 +1,77 @@
+---
+title: "Aumente suas chances de não ser roubado em Uberlândia"
+author: "Bruno de Souza Melo"
+date: 2024-08-05
+date-format: DD/MM/YYYY
+image: capa.jpg
+categories: [segurança]
+description: "Entender o comportamento de crimes é uma ferramenta muito importante para gerar ações capazes de evitá-los e também combatê-los"
+---
+
+### Introdução
+
+Caro uberlandense, cansado de ter seus pertences roubados enquanto anda tranquilamente pela rua? Agoniado por não saber quando e onde pode ser vítima de um possível roubo? Não se desespere (ainda)! Vamos analisar juntos algumas informações referentes a furtos e roubos que ocorreram na cidade de Uberlândia durante todo o ano de 2023, buscando possíveis padrões que possam nos ajudar a identificar o comportamento destes crimes e assim aumentarmos nossas chances de não sermos a próxima vítima. Os dados analisados neste texto foram obtidos através do site da Secretaria de Estado de Justiça e Segurança Pública de Minas Gerais (SEJUSP-MG).
+
+### Em que horário é mais seguro andar pela cidade?
+
+Vamos começar pela parte mais importante: o horário. Será que esses crimes acontecem mais durante a manhã, tarde ou noite? Analisaremos faixas de 6 horas, conforme o gráfico abaixo:
+
+```{r, fig.align='center'}
+#| echo: false
+#| warning: false
+
+dados <- read.csv("crimes_hora.csv", sep = ",")
+
+library(ggplot2)
+
+## Ordenando os valores do eixo X
+level_order <- c('De 00:00 as 05:59', 'De 06:00 as 11:59', 'De 12:00 as 17:59', 'De 18:00 as 23:59')
+
+ggplot(data = dados, aes(x = faixa_hora, y = qtd_roubo)) +
+  geom_bar(stat="identity", fill = '#118DFF',width = 0.7 , aes(x = factor(faixa_hora, level = level_order)))+
+  ylab("Quantidade de Crimes")+
+  geom_text(aes(label=qtd_roubo), vjust=-0.3, size=3.5)+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_blank(),
+        axis.title.x = element_blank(), axis.ticks = element_blank(), axis.text.y = element_blank())
+```
+
+(Bom, para aqueles que saem muito a partir das 18:00, sugiro que não o façam)
+
+Este comportamento seria o esperado visto que é um horário com grande movimento de pessoas, porém, diferentemente dos horários entre 06:00 e 17:59, a partir das 18:00 a baixa iluminação pode aumentar a confiança dos assaltantes. Portanto, aumentar os cuidados durante a noite é fundamental.
+
+Embora a descoberta anterior possa parecer um pouco “óbvia” demais, é importante entender alguns dos motivos que fazem isso acontecer, por exemplo, o movimento de pessoas durante a madrugada (00:00 às 05:59) é baixo, porém, esta faixa de horário apresenta a segunda maior taxa de ocorrências, o que pode contribuir para a hipótese de que a baixa luminosidade contribua para a ocorrência destes roubos
+
+### Qual dia da semana é o mais seguro?
+
+Agora que avaliamos os horários que esses crimes ocorrem, vamos buscar entender como esses roubos estão dispostos no decorrer da semana. Para isso, vamos analisar a quantidade de roubos por dia da semana a partir do gráfico a seguir:
+
+```{r, fig.align='center'}
+#| echo: false
+#| warning: false
+
+dados <- read.csv("crimes_semana.csv", sep = ",")
+
+library(ggplot2)
+
+## Ordenando os valores do eixo X
+level_order <- c('Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo')
+
+ggplot(data = dados, aes(x = Dia.da.Semana.Fato, y = Contagem.de.Número.REDS)) +
+  geom_bar(stat="identity", fill = '#118DFF',width = 0.7 , aes(x = factor(Dia.da.Semana.Fato, level = level_order)))+
+  ylab("Quantidade de Crimes")+
+  geom_text(aes(label=Contagem.de.Número.REDS), vjust=-0.3, size=3.5)+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_blank(),
+        axis.title.x = element_blank(), axis.ticks = element_blank(), axis.text.y = element_blank())
+```
+
+(Podemos perceber que até os assaltantes preferem “trabalhar” em dias úteis)
+
+Temos agora uma informação um pouco contraintuitiva (ou não): se o número de roubos acontece, em sua maioria, durante a noite, era de se esperar que essa quantidade aumentasse aos finais de semana onde o fluxo de pessoas neste horário é ainda maior. Entretanto, não é isso que o gráfico anterior nos diz.
+
+### Conclusão
+
+Percebe-se que, com apenas uma análise rápida e simplória, podemos entender um pouco mais o comportamento dos roubos na cidade de Uberlândia, como estão distribuídos durante a semana e seus principais horários de ocorrência. Um estudo mais detalhado poderia chegar a resultados ainda mais interessantes.
+
+E lembre-se, muito cuidado ao sair de casa quinta-feira à noite.
