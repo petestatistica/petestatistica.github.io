@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  page-navigation: true
+  title: "PET Estatística"
+  navbar:
+    search: true
+    left:
+      - href: integrantes/index.qmd
+        text: Integrantes
+      - href: artigos.qmd
+        text: Artigos
+      - href: curso.qmd
+        text: O Curso
+      - href: sobre-pet.qmd
+        text: Sobre o PET
+      - href: atividades.qmd
+        text: Atividades
+    background: "#172C3C"
+    foreground: "#FFFFFF"
+ 
+    right: 
+      - icon: github
+        href: https://github.com/petestatistica
+      - icon: instagram
+        href: https://www.instagram.com/petestatisticaufu
+
+  page-footer:
+    left: "Página criada com 💜 e [Quarto](https://quarto.org/) pelo PET Estatística."
+  favicon: logo.jpg
+  
+format:
+  html:
+    theme:
+     - simplex
+     - custom.scss
+    linkcolor: "#274862"
+    css: styles.css
+    toc: true
+    
+
