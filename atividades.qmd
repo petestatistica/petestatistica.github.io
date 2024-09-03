@@ -1,0 +1,44 @@
+---
+title: "Mapa do tesouro"
+toc: true
+title-block-banner: true
+toc-title: "Nesta página"
+toc-depth: 20
+link-external-newwindow: true
+editor: source
+---
+
+## Informações gerais sobre o curso
+
+Nesta curso, o PET Estatística apresenta o conteúdo de Raspagem de Dados (Web scraping) e Construção de Mapas com R. O curso será dividido em duas aulas.
+
+![Mapa representando o número de queimadas registradas em 2024 por estado no Brasil; quanto mais forte a cor, maior o número de queimadas registradas.](/mapa_tesouro.png){fig-align="center"}
+
+## Aula 1: Raspagem de Dados
+
+Na primeira aula, introduziremos o conceito de raspagem de dados e apresentaremos a biblioteca `rvest` do R. A raspagem de dados é uma técnica utilizada para extrair informações de sites da internet. A biblioteca `rvest` é uma ferramenta poderosa para realizar essa tarefa. Também, como ferramenta eseencial para a raspagem de dados, apresentaremos os conceitos introdutórios de HTML e de expressões regulares.
+
+Para esta aula, rasparemos os dados de dois sites: um site sobre filmes e um site que apresenta dados sobre a alfabetização no Brasil. Os links para cada um desses sites estão disponíveis abaixo:
+
+- [Site sobre filmes](https://www.nsctotal.com.br/noticias/20-melhores-filmes-todos-os-tempos-ate-2020)
+- [Site sobre alfabetização no Brasil](https://pt.wikipedia.org/wiki/Lista_de_unidades_federativas_do_Brasil_por_alfabetiza%C3%A7%C3%A3o#:~:text=A%20unidade%20federativa%20com%20o,Para%C3%ADba%20(86%2C8%25))
+
+O código em R da primeira aula está aqui: [Código da Aula 1](https://drive.google.com/file/d/16PESumzXExjrZjuNATP_H0U-CeONYpkI/view?usp=sharing)
+
+## Aula 2: Construção de Mapas
+
+Na segunda aula, apresentaremos os elementos necessários para construir mapas com o R. Utilizaremos os conceitos da primeira aula para obter dados e representar estes dados em mapas. Para esta aula, utilizaremos, por exemplo, os dados de queimadas registradas em 2024 por estado no Brasil. O mapa gerado com esses dados está disponível no início desta página.
+
+No início da aula, ensinaremos os fundamentos do pacote `ggplot2`. Esta biblioteca poderosa nos permite criar gráficos muito bonitos. Os dados que utilizaremos estão disponíveis nos seguintes links:
+
+- [Dados 1](https://drive.google.com/file/d/1EA2jDy4IHuMmoqan2DowTt0oEMRSHe_S/view?usp=sharing)
+- [Dados 2](https://drive.google.com/file/d/18Y_eJDUwrn0fdepMjYSdhQQoNpfCFSKR/view?usp=sharing)
+
+
+
+## Bibliografia
+
+Recomendamos a leitura dos seguintes materiais para aprofundar o conhecimento sobre os temas abordados no curso:
+
+- [R para Ciência de Dados](https://cienciadedatos.github.io/pt-r4ds/webscraping.html)
+- [Documentação da biblioteca geobr](https://cran.r-project.org/web/packages/geobr/vignettes/intro_to_geobr.html)
