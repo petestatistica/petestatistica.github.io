@@ -2,6 +2,7 @@
   {
     "listing": "/artigos.html",
     "items": [
+      "/artigos/blaze/index.html",
       "/artigos/roubos-uberlandia/index.html",
       "/artigos/knn/index.html",
       "/artigos/teste-hipoteses/index.html",
