@@ -2,6 +2,7 @@
   {
     "listing": "/artigos.html",
     "items": [
+      "/artigos/kmeans/index.html",
       "/artigos/blaze/index.html",
       "/artigos/roubos-uberlandia/index.html",
       "/artigos/knn/index.html",
