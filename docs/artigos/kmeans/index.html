@@ -265,8 +265,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Para esse conjunto de dados, tomaremos nosso ’<em>k’</em> como 5, o número de iterações como 20 e ’<em>nstart’ como 50.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>clusterizacao <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> dados_padronizados, <span class="at">centers =</span> <span class="dv">5</span>, <span class="at">iter.max =</span> <span class="dv">20</span>, <span class="at">nstart =</span> <span class="dv">50</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>clusterizacao</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># para reprodutibilidade</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>clusterizacao <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> dados_padronizados, <span class="at">centers =</span> <span class="dv">5</span>, <span class="at">iter.max =</span> <span class="dv">20</span>, <span class="at">nstart =</span> <span class="dv">50</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>clusterizacao</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esse código nos retorna as principais informações sobre o nosso agrupamento, sendo elas: a quantidade de <em>clusters</em> e seus respectivos tamanhos, as médias das variáveis para cada <em>cluster</em>, o vetor indicador da classificação de cada observação, a soma de quadrados dos <em>clusters</em> e uma lista de todos os componentes disponíveis.</p>
 <p>O componente que mais nos interessa é o vetor indicando a qual <em>cluster</em> (de 1 a 5) cada observação do conjunto de dados pertence. Para isso, usamos o código a seguir:</p>
@@ -274,25 +275,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>clusterizacao<span class="sc">$</span>cluster</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       Alabama         Alaska        Arizona       Arkansas     California 
-             4              3              3              1              3 
+             5              3              3              1              3 
       Colorado    Connecticut       Delaware        Florida        Georgia 
-             3              2              2              3              4 
+             3              2              2              3              5 
         Hawaii          Idaho       Illinois        Indiana           Iowa 
-             2              5              3              1              5 
+             2              4              3              1              4 
         Kansas       Kentucky      Louisiana          Maine       Maryland 
-             1              1              4              5              3 
+             1              1              5              4              3 
  Massachusetts       Michigan      Minnesota    Mississippi       Missouri 
-             2              3              5              4              1 
+             2              3              4              5              1 
        Montana       Nebraska         Nevada  New Hampshire     New Jersey 
-             1              1              3              5              2 
+             1              1              3              4              2 
     New Mexico       New York North Carolina   North Dakota           Ohio 
-             3              3              4              5              2 
+             3              3              5              4              2 
       Oklahoma         Oregon   Pennsylvania   Rhode Island South Carolina 
-             1              1              2              2              4 
+             1              1              2              2              5 
   South Dakota      Tennessee          Texas           Utah        Vermont 
-             5              4              3              2              5 
+             4              5              3              2              4 
       Virginia     Washington  West Virginia      Wisconsin        Wyoming 
-             1              2              5              5              1 </code></pre>
+             1              2              4              4              1 </code></pre>
 </div>
 </div>
 <p>Agora que conseguimos agrupar os estados, criaremos uma coluna em nosso <em>dataframe</em> chamada <em>cluster</em> contendo a classificação de cada observação. Também usaremos a função <em>as.factor()</em> para transformar o vetor em um fator, ou seja, em um dado categórico.</p>
@@ -326,14 +327,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(cluster4)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Alabama"        "Georgia"        "Louisiana"      "Mississippi"   
-[5] "North Carolina" "South Carolina" "Tennessee"     </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(cluster5)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
 <pre><code> [1] "Idaho"         "Iowa"          "Maine"         "Minnesota"    
  [5] "New Hampshire" "North Dakota"  "South Dakota"  "Vermont"      
  [9] "West Virginia" "Wisconsin"    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(cluster5)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Alabama"        "Georgia"        "Louisiana"      "Mississippi"   
+[5] "North Carolina" "South Carolina" "Tennessee"     </code></pre>
 </div>
 </div>
 <p>Agora que sabemos a qual grupo pertence cada estado, podemos começar a pensar em alguns questionamentos interessantes. Além das taxas de prisões, o que será que esses estados agrupados no mesmo <em>cluster</em> possuem em comum? Será que são estados geograficamente próximos uns dos outros? Será que dividem semelhanças em aspectos socioeconômicos ou no contexto histórico?</p>
