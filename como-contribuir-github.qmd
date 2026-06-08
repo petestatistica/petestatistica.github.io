@@ -1,16 +1,13 @@
 ---
 title: "Como Contribuir em um Projeto no GitHub"
 subtitle: "Um guia passo a passo para iniciantes — usando GitHub Desktop"
-date: today
+toc: true
+toc-title: "Índice"
+toc-depth: 2
+title-block-banner: true
+link-external-newwindow: true
 lang: pt
-format:
-  html:
-    toc: true
-    toc-depth: 2
-    toc-title: "Índice"
-    number-sections: false
-    code-fold: false
-    theme: cosmo
+editor: source
 ---
 
 ::: {.callout-tip}
