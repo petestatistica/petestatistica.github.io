@@ -1,0 +1,318 @@
+---
+title: "Como Contribuir em um Projeto no GitHub"
+subtitle: "Um guia passo a passo para iniciantes — usando GitHub Desktop"
+date: today
+lang: pt
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "Índice"
+    number-sections: false
+    code-fold: false
+    theme: cosmo
+---
+
+::: {.callout-tip}
+**Analogia geral:** Pense no GitHub como um Google Docs colaborativo para código. Vários desenvolvedores trabalham juntos no mesmo projeto, mas cada um escreve suas alterações em uma "aba separada" antes de sugerir que entrem no documento principal.
+:::
+
+---
+
+## Pré-requisitos
+
+Antes de começar, você precisa ter instalado na sua máquina:
+
+- **GitHub Desktop** → [desktop.github.com](https://desktop.github.com) *(o programa que vamos usar)*
+- **Uma conta no GitHub** → [github.com](https://github.com)
+- **Um editor de código** (ex: [VS Code](https://code.visualstudio.com))
+
+::: {.callout-note}
+Após instalar o GitHub Desktop, faça login com a sua conta do GitHub dentro do aplicativo em **File → Options → Accounts**.
+:::
+
+---
+
+## Para o dono do repositório — Como adicionar um colaborador
+
+::: {.callout-tip}
+**Analogia:** Isso é como dar uma cópia da chave do escritório para alguém. A pessoa passa a ter acesso e pode entrar (e modificar coisas) diretamente, sem precisar pedir permissão toda vez.
+:::
+
+Se você é o **dono do projeto** e precisa dar acesso a outra pessoa, siga estes passos:
+
+1. Acesse o repositório no GitHub
+2. Clique em **"Settings"** (aba no menu superior do repositório)
+3. No menu lateral esquerdo, clique em **"Collaborators"**
+4. Clique no botão **"Add people"**
+5. Digite o **nome de usuário ou e-mail** da pessoa no GitHub
+6. Selecione o usuário correto na lista e clique em **"Add [nome] to this repository"**
+7. Escolha o nível de permissão:
+
+| Permissão | O que pode fazer |
+|---|---|
+| **Read** | Apenas visualizar o código |
+| **Triage** | Gerenciar issues e PRs, sem editar código |
+| **Write** | Criar branches e fazer push ✅ *(recomendado para contribuidores)* |
+| **Maintain** | Gerenciar o repositório sem acesso total |
+| **Admin** | Acesso total, igual ao dono |
+
+8. Um **e-mail de convite** será enviado automaticamente para a pessoa
+
+::: {.callout-warning}
+Com permissão **Write**, o colaborador pode fazer push direto na `main` sem abrir um PR — o GitHub não bloqueia isso por padrão. Para obrigar o uso de PRs, veja a seção abaixo.
+:::
+
+---
+
+## Para o dono do repositório — Como proteger a branch main
+
+::: {.callout-tip}
+**Analogia:** Isso é como colocar uma **catraca na porta principal** do projeto. Mesmo quem tem a chave (permissão Write) não pode entrar direto — precisa passar pela recepção (PR) primeiro.
+:::
+
+Por padrão, alguém com permissão Write pode fazer push diretamente na `main`, pulando a revisão. Para evitar isso e **tornar o PR obrigatório**:
+
+1. Acesse o repositório no GitHub
+2. Clique em **"Settings"**
+3. No menu lateral, clique em **"Branches"**
+4. Clique em **"Add branch ruleset"** (ou **"Add classic branch protection rule"** em repositórios mais antigos)
+5. Em **"Branch name pattern"**, digite `main`
+6. Marque a opção **"Require a pull request before merging"**
+   - Opcionalmente, marque também **"Require approvals"** para exigir aprovação antes do merge
+7. Clique em **"Create"** (ou **"Save changes"**)
+
+A partir de agora, **ninguém** — nem o próprio dono — consegue fazer push direto na `main`. Tudo obrigatoriamente passa por PR. ✅
+
+---
+
+## Para o colaborador — Como aceitar o convite
+
+Após o dono do repositório te adicionar:
+
+1. Verifique seu **e-mail** — você receberá uma mensagem do GitHub
+2. Clique no botão **"View invitation"** no e-mail
+3. Na página que abrir, clique em **"Accept invitation"**
+
+Pronto! Agora você tem acesso direto ao repositório. ✅
+
+::: {.callout-note}
+Alternativamente, você pode aceitar pelo link:
+`https://github.com/USUARIO/nome-do-projeto/invitations`
+:::
+
+::: {.callout-note}
+**Por que não posso fazer push direto na `main`?** Se o dono ativou a proteção de branch, você verá um erro ao tentar. Isso é intencional — significa que todas as alterações precisam passar por PR para serem revisadas antes de entrar no projeto.
+:::
+
+---
+
+## Passo 1 — Clone o repositório
+
+::: {.callout-tip}
+**Analogia:** Clonar é como **baixar o projeto para a sua mesa de trabalho**. O projeto fica na nuvem (GitHub); o clone traz uma cópia para o seu computador, onde você pode editar os arquivos.
+:::
+
+**Como fazer no GitHub Desktop:**
+
+1. Abra o **GitHub Desktop**
+2. Vá em **File → Clone repository...**
+3. Na aba **"GitHub.com"**, o repositório ao qual você foi adicionado já deve aparecer na lista
+4. Selecione o repositório
+5. Escolha a **pasta** onde quer salvar o projeto no seu computador
+6. Clique em **"Clone"**
+
+Aguarde o download terminar — o projeto agora está na sua máquina! 🎉
+
+---
+
+## Passo 2 — Crie uma nova branch
+
+::: {.callout-tip}
+**Analogia:** A *branch* é como uma **folha de rascunho separada**. Você escreve suas ideias ali sem mexer no documento principal. Só depois de aprovado é que o rascunho vira parte do original.
+:::
+
+A branch principal do projeto geralmente se chama `main` ou `master`. **Nunca trabalhe diretamente nela.**
+
+**Como criar uma branch no GitHub Desktop:**
+
+1. No GitHub Desktop, clique no menu **"Current Branch"** (parte superior central)
+2. Clique em **"New Branch"**
+3. Digite um nome descritivo para a sua branch. Exemplos:
+   - `fix/corrigir-typo-readme`
+   - `feat/adicionar-botao-login`
+   - `docs/atualizar-documentacao`
+4. Certifique-se que ela está sendo criada a partir da `main`
+5. Clique em **"Create Branch"**
+
+::: {.callout-note}
+Use nomes em minúsculas, sem espaços (use `-` no lugar de espaço) e que descrevam o que você vai fazer.
+:::
+
+---
+
+## Passo 3 — Faça suas alterações
+
+Agora é a hora de colocar a mão na massa! 🛠️
+
+1. No GitHub Desktop, clique em **"Open in Visual Studio Code"** (ou no seu editor preferido)
+2. Faça as modificações desejadas nos arquivos: corrija um bug, melhore a documentação, adicione uma funcionalidade, etc.
+3. Salve os arquivos normalmente (`Ctrl+S` no Windows ou `Cmd+S` no Mac)
+
+Quando voltar ao GitHub Desktop, você verá todos os arquivos alterados listados no painel esquerdo.
+
+---
+
+## Passo 4 — Commit das alterações
+
+::: {.callout-tip}
+**Analogia:** O *commit* é como **tirar uma foto** do seu trabalho em um momento específico. Ele registra exatamente o que mudou, quem mudou e quando.
+:::
+
+**Como fazer no GitHub Desktop:**
+
+1. No painel esquerdo, você verá os arquivos modificados com um **check** ao lado — mantenha marcados apenas os que quer incluir neste commit
+2. No canto inferior esquerdo, preencha:
+   - **Summary (required):** uma frase curta descrevendo o que foi feito *(ex: `Adiciona botão de login na página principal`)*
+   - **Description:** opcional, mas útil para dar mais detalhes
+3. Clique em **"Commit to [nome-da-sua-branch]"**
+
+::: {.callout-note}
+**Dica para o título do commit:**
+
+- ✅ `"Corrige erro de digitação no README"`
+- ✅ `"Adiciona instruções de instalação"`
+- ❌ `"alterações"` ou `"update"` ← evite mensagens vagas
+:::
+
+---
+
+## Passo 5 — Envie para o GitHub (Push)
+
+::: {.callout-tip}
+**Analogia:** O *push* é como **enviar sua folha de rascunho de volta para a nuvem**. Suas alterações locais agora aparecem no GitHub para todos verem.
+:::
+
+**Como fazer no GitHub Desktop:**
+
+1. Após o commit, clique no botão **"Push origin"** na parte superior do GitHub Desktop
+2. Aguarde o envio terminar
+
+::: {.callout-note}
+Se for a primeira vez que você faz push nessa branch, o botão pode aparecer como **"Publish branch"** — clique nele igualmente.
+:::
+
+---
+
+## Passo 6 — Abra um Pull Request (PR)
+
+::: {.callout-tip}
+**Analogia:** O *Pull Request* é como **entregar seu rascunho para revisão**. Você diz: *"Terminei minhas alterações — alguém pode revisar e aprovar para entrar no projeto oficial?"*
+:::
+
+**Opção A — pelo GitHub Desktop (mais rápido):**
+
+1. Após o push, o GitHub Desktop exibirá um botão **"Create Pull Request"** — clique nele
+2. Seu navegador abrirá automaticamente na página de criação do PR no GitHub
+
+**Opção B — pelo GitHub no navegador:**
+
+1. Acesse o repositório no GitHub
+2. O GitHub exibirá um banner amarelo: **"Compare & pull request"** → clique nele
+   - Se não aparecer, vá na aba **"Pull requests"** → **"New pull request"**
+3. Verifique as informações:
+   - **base:** `main` *(branch de destino — onde suas alterações vão entrar)*
+   - **compare:** `nome-da-sua-branch` *(suas alterações)*
+
+**Em ambos os casos, preencha o formulário:**
+
+- **Título:** claro e objetivo *(ex: `Adiciona botão de login na página principal`)*
+- **Descrição:** explique **o que** foi feito, **por que** e **como testar** (se aplicável)
+
+Clique em **"Create pull request"** ✅
+
+---
+
+## Passo 7 — Aguarde a revisão
+
+::: {.callout-tip}
+**Analogia:** Agora é como entregar um trabalho para o professor corrigir. Ele pode aprovar, pedir ajustes ou devolver com comentários.
+:::
+
+O que pode acontecer:
+
+| Situação | O que fazer |
+|---|---|
+| ✅ **Aprovado (Merged)** | Parabéns! Sua contribuição foi aceita! 🎉 |
+| 💬 **Pedido de ajuste** | Leia o feedback, faça as alterações no editor, faça um novo commit e push pela mesma branch |
+| ❌ **Recusado** | Não desanime! Leia o motivo e tente novamente com as melhorias sugeridas |
+
+::: {.callout-note}
+Quando você fizer novos commits na mesma branch após abrir o PR, eles aparecem automaticamente no PR — não precisa abrir um novo.
+:::
+
+---
+
+## Dicas e boas práticas
+
+- 🔄 **Mantenha sua branch atualizada** — antes de começar a trabalhar, clique em **"Fetch origin"** no GitHub Desktop para baixar as últimas alterações do projeto
+- 🧹 **Faça commits pequenos e frequentes** — é mais fácil de revisar do que um commit gigante com tudo junto
+- 🔍 **Verifique se já existe uma issue** sobre o que você quer fazer antes de começar
+- 💬 **Comente no PR** se precisar de contexto adicional ou tiver dúvidas durante a revisão
+- 🗑️ **Após o merge**, você pode deletar a branch — no GitHub Desktop: **Branch → Delete**
+
+---
+
+## Erros comuns e como resolver
+
+### ❌ Não consigo fazer push
+
+Verifique se você aceitou o convite de colaborador. Sem aceitar, você não tem permissão de escrita no repositório.
+
+### ❌ "This branch is out of date"
+
+Sua branch está desatualizada em relação à `main`. No GitHub Desktop, vá em **Branch → Update from main** para sincronizar.
+
+### ❌ Conflitos de merge
+
+Acontece quando duas pessoas editaram o mesmo trecho de código. O GitHub Desktop vai sinalizar os arquivos em conflito — abra-os no editor, escolha qual versão manter, salve e faça um novo commit.
+
+### ❌ Esqueci de criar uma branch e trabalhei na `main`
+
+Não entre em pânico! No GitHub Desktop: crie uma nova branch agora — ela vai carregar suas alterações. Depois, reverta a `main` para o estado original em **Branch → Revert changes**.
+
+---
+
+## Resumo visual do fluxo
+
+```
+Dono adiciona você como colaborador
+              │
+              │  Você aceita o convite por e-mail
+              ▼
+      Clone do repositório
+    (GitHub Desktop → Clone)
+              │
+              │  Cria uma nova branch
+              ▼
+       Faz as alterações
+      (no editor de código)
+              │
+              │  Commit
+              ▼
+         Push / Publish
+    (GitHub Desktop → Push origin)
+              │
+              │  Abre o Pull Request
+              ▼
+    Revisão pelo dono do projeto
+              │
+              ▼
+          Merged! 🎉
+```
+
+---
+
+::: {.callout-important}
+Com acesso de colaborador, o fluxo é simples e direto. O mais importante é sempre trabalhar em uma **branch separada** e descrever bem o que você fez no PR — isso facilita muito a revisão!
+:::

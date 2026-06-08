@@ -20,6 +20,8 @@ website:
         text: Sobre o PET
       - href: integrantes/index.qmd
         text: Integrantes
+      - href: como-contribuir-github.qmd
+        text: Como Contrubuir
     background: "#172C3C"
     foreground: "#FFFFFF"
  
